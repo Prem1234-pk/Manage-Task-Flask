@@ -1,2 +1,2 @@
 To run this
-Use python app.py
+Use :- python app.py
