@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body style="background-color: lightgrey;">
+    <a href="/logout"><button>Logout</button></a>
+    <a href="/"><button>Back</button></a>
+
+   
+    {% if tasks %}
+      <div style=" width: 500px;margin-left: 25%; font-size: larger;background-color: lightyellow;">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Task</th>
+              <th>Status</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for task in tasks %}
+              <tr>
+                <td>{{ task.username }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.created_at }}</td>
+                <td>{{ task.deadline }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </body>
+</html>

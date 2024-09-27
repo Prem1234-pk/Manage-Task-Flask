@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <a href="/logout"><button>Logout</button></a>
+    <hr>
+
+    {% if tasks %}
+      <table style="width: 70%; margin-left: auto; margin-right: auto; font-size: larger; background-color: lightyellow;" border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+          <tr>
+            <form method="POST" action="/updatestatus/{{ task.username }}/{{ task.title }}">
+              <td>{{ task.username }}</td>
+              <td>{{ task.title }}</td>
+              <td>
+                <select name="status" id="status" style="width: 100px;">
+                  <option value="Initial" {% if task.status == 'Initial' %} selected {% endif %}>Initial</option>
+                  <option value="Processing" {% if task.status == 'Processing' %} selected {% endif %}>Processing</option>
+                  <option value="Completed" {% if task.status == 'Completed' %} selected {% endif %}>Completed</option>
+                </select>
+              </td>
+              <td>{{ task.created_at.strftime('%Y-%m-%d') }}</td>
+              <td>{{ task.deadline.strftime('%Y-%m-%d') }}</td>
+              <td>
+                <button type="submit">Update Status</button>
+              </td>
+            </form>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </body>
+</html>

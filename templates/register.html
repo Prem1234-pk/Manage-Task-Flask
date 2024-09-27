@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body >
+    <a href="/login" ><button>Login Page</button></a>
+    <div style="border:solid;height: 600px; width: 700px;align-items: center; text-align: center;margin-left: 20%;">
+        <h1>Register</h1>
+        <div style="background-color: antiquewhite; text-align:center;font-size: larger; ">
+            <form action="/register" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="email" required>
+                <select name="role" id="role"  style="width: 100px;">
+                    <option disabled = "disabled" selected='true'>Select one</option>
+                    <option value="admin" >Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Register</button>
+                
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
